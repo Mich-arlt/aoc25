@@ -53,7 +53,7 @@ std::vector<Point> getRectanglePerimeter(const std::vector<Point>& input) {
     int min_y = std::min(input[0].y, input[1].y);
     int max_y = std::max(input[0].y, input[1].y);
 
-    int step = 100;
+    int step = 1400;
 
     if (min_x == max_x || min_y == max_y) {
         for (int x = min_x; x <= max_x; x += step) {
