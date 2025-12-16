@@ -17,7 +17,6 @@ struct Point {
 bool onSegment(Point p, Point r, Point q) {
     return q.x <= std::max(p.x, r.x) && q.x >= std::min(p.x, r.x) &&
            q.y <= std::max(p.y, r.y) && q.y >= std::min(p.y, r.y) &&
-           // Sprawdzenie współliniowości (cross product bliski 0)
            std::abs((r.y - p.y) * (q.x - r.x) - (r.x - p.x) * (q.y - r.y)) < 1e-9;
 }
 
@@ -32,7 +31,6 @@ bool isInside(const std::vector<Point>& polygon, Point p) {
         if (onSegment(polygon[i], polygon[j], p)) {
             return true;
         }
-
         if ((polygon[i].y > p.y) != (polygon[j].y > p.y)) {
             if (p.x < (polygon[j].x - polygon[i].x) * (p.y - polygon[i].y) / (polygon[j].y - polygon[i].y) + polygon[i].x) {
                 result = !result;
